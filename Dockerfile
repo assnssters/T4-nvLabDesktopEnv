@@ -14,4 +14,10 @@ RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.d
 RUN wget https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/releases/download/v2.17.2/Heroic-2.17.2-linux-amd64.deb -O ./heroic.deb && apt install -y "./heroic.deb"
 RUN wget https://github.com/LizardByte/Sunshine/releases/download/v2025.615.34501/sunshine-debian-bookworm-amd64.deb -O sunshine.deb && apt install -y "./sunshine.deb"
 
+EXPOSE 47989/tcp
+EXPOSE 47984/tcp
+EXPOSE 48010/ucp
+EXPOSE 47998/ucp
+EXPOSE 47999/ucp
+EXPOSE 47800/ucp
 CMD ["/usr/local/bin/start.sh"]
