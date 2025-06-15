@@ -2,8 +2,7 @@ FROM nvidia/cuda:12.9.0-cudnn-devel-ubuntu24.04
 
 COPY ./start.sh /usr/local/bin/start.sh
 RUN mkdir -p /pkg
-RUN apt update -y && apt upgrade -y && apt install -y \
-    xrdp xrfb \
+RUN apt update -y && apt install -y xrdp xrfb \
     tightvncserver xfce4 xfce4-terminal xfce4-goodies \
     thunar xfce4-taskmanager p7zip-full p7zip-rar unzip
 RUN sudo dpkg --add-architecture i386 && sudo mkdir -pm755 /etc/apt/keyrings && wget https://dl.winehq.org/wine-builds/winehq.key && sudo gpg --dearmor -o /etc/apt/keyrings/winehq-archive.key winehq.key && sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/noble/winehq-noble.sources \
