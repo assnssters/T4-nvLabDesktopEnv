@@ -20,4 +20,6 @@ EXPOSE 48010/ucp
 EXPOSE 47998/ucp
 EXPOSE 47999/ucp
 EXPOSE 47800/ucp
+EXPOSE 3389
+EXPOSE 5910
 CMD ["/usr/local/bin/start.sh"]
