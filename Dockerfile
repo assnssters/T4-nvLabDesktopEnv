@@ -1,4 +1,4 @@
-FROM nvidia/cuda:12.9.0-cudnn-devel-ubuntu24.04
+FROM nvidia/cuda:12.9.0-base-ubuntu22.04
 
 COPY ./start.sh /usr/local/bin/start.sh
 RUN mkdir -p /pkg
