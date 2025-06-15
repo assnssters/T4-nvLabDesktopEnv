@@ -13,6 +13,8 @@ RUN echo 'user ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers
 RUN echo "123456" | passwd user --stdin
 
 RUN sudo cp /etc/xrdp/startwm.sh /etc/xrdp/startwm.sh.bak
+RUN echo -e '#!/bin/sh\n\n# Start XFCE4 session\nif [ -d /etc/xdg/xfce4 ]; then\n    startxfce4\nfi\n\ntest -x /etc/X11/Xsession && exec /etc/X11/Xsession\nexec /bin/sh /etc/X11/Xsession' > /etc/xrdp/startwm.sh && \
+    chmod +x /etc/xrdp/startwm.sh
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O chrome.deb && apt install -y "./chrome.deb" 
 RUN wget https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/releases/download/v2.17.2/Heroic-2.17.2-linux-amd64.deb -O ./heroic.deb && apt install -y "./heroic.deb"
 RUN wget https://github.com/LizardByte/Sunshine/releases/download/v2025.615.34501/sunshine-debian-bookworm-amd64.deb -O sunshine.deb && apt install -y "./sunshine.deb"
