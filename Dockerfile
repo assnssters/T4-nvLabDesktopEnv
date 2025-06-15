@@ -7,7 +7,7 @@ RUN apt update -y && apt upgrade -y && apt install -y \
 
 WORKDIR /pkg
 RUN useradd -ms /bin/bash user
-RUN echo 'user ALL=(ALL:ALL) ALL' >> /etc/sudoers
+RUN echo 'user ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers
 RUN echo "123456" | passwd user --stdin
 
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O chrome.deb && apt install -y "./chrome.deb" 
