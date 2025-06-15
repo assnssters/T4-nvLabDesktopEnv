@@ -1,7 +1,7 @@
 FROM nvidia/cuda:12.9.0-cudnn-devel-ubuntu24.04
 
 COPY ./start.sh /usr/local/bin/start.sh
-RUN mkdir -f /pkg
+RUN mkdir -p /pkg
 RUN apt update -y && apt upgrade -y && apt install -y \
     xrdp xrfb \
     tightvncserver xfce4 xfce4-terminal xfce4-goodies \
