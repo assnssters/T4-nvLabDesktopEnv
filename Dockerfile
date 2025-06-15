@@ -1,4 +1,5 @@
 FROM nvidia/cuda:12.9.0-cudnn-devel-ubuntu24.04
+
 COPY ./start.sh /usr/local/bin/start.sh
 RUN mkdir -f /pkg
 RUN apt update -y && apt upgrade -y && apt install -y \
@@ -15,6 +16,7 @@ RUN wget https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/releases/d
 RUN wget https://github.com/LizardByte/Sunshine/releases/download/v2025.615.34501/sunshine-debian-bookworm-amd64.deb -O sunshine.deb && apt install -y "./sunshine.deb"
 USER user
 WORKDIR /home/user
+ENV DISPLAY=:0
 EXPOSE 47989/tcp
 EXPOSE 47984/tcp
 EXPOSE 48010/ucp
