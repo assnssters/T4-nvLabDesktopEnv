@@ -3,7 +3,7 @@ FROM nvidia/cuda:12.9.0-base-ubuntu22.04
 ENV DEBIAN_FRONTEND=noninteractive
 COPY ./start.sh /usr/local/bin/start.sh
 RUN mkdir -p /pkg
-RUN apt update -y
+RUN apt update -y && apt upgrade -y
 RUN apt install -y xrdp xvfb \
     tightvncserver xfce4 xfce4-terminal xfce4-goodies \
     thunar xfce4-taskmanager p7zip-full p7zip-rar unzip sudo wget curl
