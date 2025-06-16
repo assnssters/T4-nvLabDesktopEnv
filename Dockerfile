@@ -6,7 +6,7 @@ RUN mkdir -p /pkg
 RUN apt update -y
 RUN apt install -y xrdp xvfb \
     tightvncserver xfce4 xfce4-terminal xfce4-goodies \
-    thunar xfce4-taskmanager p7zip-full p7zip-rar unzip
+    thunar xfce4-taskmanager p7zip-full p7zip-rar unzip sudo
 RUN sudo dpkg --add-architecture i386 && sudo mkdir -pm755 /etc/apt/keyrings && wget https://dl.winehq.org/wine-builds/winehq.key && sudo gpg --dearmor -o /etc/apt/keyrings/winehq-archive.key winehq.key && sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/noble/winehq-noble.sources \
     && apt update -y && apt install wine-stable
 WORKDIR /pkg
