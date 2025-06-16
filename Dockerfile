@@ -6,9 +6,9 @@ RUN mkdir -p /pkg
 RUN apt update -y && apt upgrade -y
 RUN apt install -y xrdp xvfb \
     tightvncserver xfce4 xfce4-terminal xfce4-goodies \
-    thunar xfce4-taskmanager p7zip-full p7zip-rar unzip sudo wget curl
+    thunar xfce4-taskmanager p7zip-full p7zip-rar unzip sudo wget curl libc6
 RUN sudo dpkg --add-architecture i386 && sudo mkdir -pm755 /etc/apt/keyrings && wget https://dl.winehq.org/wine-builds/winehq.key && sudo gpg --dearmor -o /etc/apt/keyrings/winehq-archive.key winehq.key && sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/noble/winehq-noble.sources \
-    && apt update -y && apt install wine-stable
+    && apt update -y && apt install --install-recommends wine-stable
 WORKDIR /pkg
 RUN useradd -ms /bin/bash user
 RUN echo 'user ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers
