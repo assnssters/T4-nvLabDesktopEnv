@@ -1,5 +1,6 @@
 FROM nvidia/cuda:12.9.0-base-ubuntu22.04
 
+ENV DEBIAN_FRONTEND=noninteractive
 COPY ./start.sh /usr/local/bin/start.sh
 RUN mkdir -p /pkg
 RUN apt update -y
