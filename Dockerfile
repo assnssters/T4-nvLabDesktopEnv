@@ -30,4 +30,4 @@ EXPOSE 47999/udp
 EXPOSE 47800/udp
 EXPOSE 3389
 EXPOSE 5910
-CMD ["/bin/bash /usr/local/bin/start.sh"]
+CMD bash /usr/local/bin/start.sh
