@@ -10,7 +10,7 @@ RUN apt install -y xrdp xvfb \
 WORKDIR /pkg
 RUN useradd -ms /bin/bash user
 RUN echo 'user ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers
-RUN echo "123456" | passwd user --stdin
+RUN echo "user:123456" | chpasswd
 
 RUN sudo cp /etc/xrdp/startwm.sh /etc/xrdp/startwm.sh.bak
 RUN echo -e '#!/bin/sh\n\n# Start XFCE4 session\nif [ -d /etc/xdg/xfce4 ]; then\n    startxfce4\nfi\n\ntest -x /etc/X11/Xsession && exec /etc/X11/Xsession\nexec /bin/sh /etc/X11/Xsession' > /etc/xrdp/startwm.sh && \
