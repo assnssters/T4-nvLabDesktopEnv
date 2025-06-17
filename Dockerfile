@@ -6,7 +6,7 @@ RUN mkdir -p /pkg
 RUN apt update -y && apt upgrade -y
 RUN apt install -y xrdp xvfb \
     tightvncserver xfce4 xfce4-terminal xfce4-goodies \
-    thunar xfce4-taskmanager p7zip-full p7zip-rar unzip sudo wget curl
+    thunar xfce4-taskmanager p7zip-full p7zip-rar unzip sudo wget curl nvidia-driver-525
 WORKDIR /pkg
 RUN chmod +x  /usr/local/bin/start.sh
 RUN useradd -ms /bin/bash user
