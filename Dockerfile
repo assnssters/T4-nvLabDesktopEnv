@@ -8,6 +8,7 @@ RUN apt install -y xrdp xvfb \
     tightvncserver xfce4 xfce4-terminal xfce4-goodies \
     thunar xfce4-taskmanager p7zip-full p7zip-rar unzip sudo wget curl
 WORKDIR /pkg
+RUN chmod +x  /usr/local/bin/start.sh
 RUN useradd -ms /bin/bash user
 RUN echo 'user ALL=(ALL:ALL) NOPASSWD: ALL' >> /etc/sudoers
 RUN echo "user:123456" | chpasswd
